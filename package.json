@@ -26,6 +26,7 @@
   "homepage": "https://github.com/kyselberg/e#readme",
   "devDependencies": {
     "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
@@ -46,6 +47,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.11.5"
+    "@babel/polyfill": "^7.11.5",
+    "normalize.css": "^8.0.1"
   }
 }
