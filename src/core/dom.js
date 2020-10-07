@@ -54,8 +54,53 @@ class Dom {
 		return this.nativeElem.style
 	}
 
-	getAll(selector) {
+	focus() {
+		this.nativeElem.focus()
+		return this
+	}
+
+	id(parse) {
+		if (parse) {
+			const parsed = this.id().split(':')
+			return {
+				row: +parsed[0],
+				col: +parsed[1],
+			}
+		}
+		return this.data.id
+	}
+
+	find(selector) {
+		const $el =
+			typeof selector === 'string' ?
+			this.nativeElem.querySelector(selector) :
+			selector
+		return $($el)
+	}
+
+	text(text) {
+		if (typeof text === 'string') {
+			this.nativeElem.textContent = text
+			return
+		}
+		if (this.nativeElem.tagName.toLowerCase() === 'input') {
+			return this.nativeElem.value.trim()
+		}
+		return this.nativeElem.textContent.trim()
+	}
+
+	findAll(selector) {
 		return this.nativeElem.querySelectorAll(selector)
+	}
+
+	addClass(className) {
+		this.nativeElem.classList.add(className)
+		return this
+	}
+
+	removeClass(className) {
+		this.nativeElem.classList.remove(className)
+		return this
 	}
 
 	css(styles = {}) {
